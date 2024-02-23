@@ -3,7 +3,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "SayTV Docs",
   description: "Documentation for SayTV SDKs",
-  base: "/saytv-docs/",
+  base: "/docs/",
   themeConfig: {
     nav: [
       { text: "Home", link: "/" },
