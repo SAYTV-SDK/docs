@@ -1,0 +1,22 @@
+{
+  "name": "saytv-docs",
+  "version": "1.0.0",
+  "description": "Docs for SayTV SDKs",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SAYTV-SDK/saytv-docs.git"
+  },
+  "author": "Swapnil Bhavsar",
+  "bugs": {
+    "url": "https://github.com/SAYTV-SDK/saytv-docs/issues"
+  },
+  "homepage": "https://github.com/SAYTV-SDK/saytv-docs#readme",
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.44"
+  }
+}
