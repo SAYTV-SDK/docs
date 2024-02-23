@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Web SDK Docs
-      link: /docs/web-sdk
+      link: /web-sdk
 
 features:
   - title: Web SDK

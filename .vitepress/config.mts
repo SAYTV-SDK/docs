@@ -7,13 +7,13 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: "Home", link: "/" },
-      { text: "Docs", link: "/docs/web-sdk" },
+      { text: "Docs", link: "/web-sdk" },
     ],
 
     sidebar: [
       {
         text: "Documentation",
-        items: [{ text: "Web SDK", link: "/docs/web-sdk" }],
+        items: [{ text: "Web SDK", link: "/web-sdk" }],
       },
     ],
 
