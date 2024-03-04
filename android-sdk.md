@@ -50,8 +50,8 @@ JITPACK_AUTH_TOKEN=<PROVIDED JITPACK AUTH TOKEN>
 ```
 
 where the `<PROVIDED JITPACK AUTH TOKEN>` is the Jitpack Authentication token you have been provided.
-Example: See [gradle.properties](gradle.properties) at line 24 2. In your `settings.gradle` file, in the `dependencyResolutionManagement` block, add the following
-Jitpack repository and sync your project. See [settings.gradle](settings.gradle)
+Example: See [gradle.properties](https://github.com/mobilesq1/SayTV-SDK-Chat-Example-Android/blob/main/gradle.properties) at line 24 2. In your `settings.gradle` file, in the `dependencyResolutionManagement` block, add the following
+Jitpack repository and sync your project. See [settings.gradle](https://github.com/mobilesq1/SayTV-SDK-Chat-Example-Android/blob/main/settings.gradle)
 
 ```groovy
  maven {
