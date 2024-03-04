@@ -13,7 +13,11 @@ export default defineConfig({
     sidebar: [
       {
         text: "Documentation",
-        items: [{ text: "Web SDK", link: "/web-sdk" }],
+        items: [
+          { text: "Web SDK", link: "/web-sdk" },
+          { text: "iOS SDK", link: "/ios-sdk" },
+          { text: "Android SDK", link: "/android-sdk" },
+        ],
       },
     ],
 
