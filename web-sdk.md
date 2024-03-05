@@ -1,95 +1,227 @@
-# Web SDK Integration Guide
+# SAYTV CHAT SDK INTEGRATION GUIDE #
+### Introduction
+SayTV Chat SDK is a powerful, customizable chat component. This guide will walk you through the process of integrating it into your application.
 
-Integrating an interactive chat component into your web application enhances user engagement and provides a channel for immediate communication. SayTV Chat SDK offers a robust solution that can be seamlessly integrated into your website.
+### Pre-requisites
+A HTTPS server and Secure network is required for using of SDK Chat.
 
-#### **Step 1: Incorporating the SayTV Chat SDK**
+### SayTV Setup instruction
+Download “dist” folder from SayTV Server and save into your application folder or use link in your host application.
 
-First, you need to include the SayTV Chat SDK in your project. This can be achieved via two primary methods:
 
-**1. Using a Content Delivery Network (CDN):**
+### Meta tag
+Inclide following meta tag in your head tag to remove zoom in iPhone
+```sh
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+```
+### CDN:
+In Script Tag, include following script in your Login/Register/Index file:
 
-Insert the following script tag into the `<head>` or at the end of the `<body>` section of your HTML document:
-
-```html
+```sh
 <script src="https://sdk.saytv.net/bundle.js"></script>
 ```
 
-This method is most suitable for simple projects or cases where you want a quick setup without the complexities of a build system.
+### NPM:
+Run below command in Command Window inside your application directory:
 
-**2. Using Node Package Manager (NPM):**
-
-If your project is set up with Node.js, you can incorporate SayTV Chat SDK as a dependency:
-
-```other
-npm i saytv-chat
+```
+npm i saytv-chat 
 ```
 
-This method is recommended for more complex projects that are already using a modern front-end workflow with tools like Webpack, React, Vue.js, etc.
+### For React:
+Run below command in Command Window inside your application directory:
 
-#### **Step 2: Placing the SayTV Chat Component**
+```
+import 'saytv-chat'
+```
 
-Once the SDK is included in your project, integrate the `<saytv-chat/>` component into your HTML at the desired location:
-
-```html
+### Usage
+To use the SayTV Chat SDK, simply add saytv-chat component in your HTML file:
+**SayTV chat component**
+```
 <saytv-chat
-  apiurl="https://lad-api-v2.staging.saytv.sq1.io/api/v2"
-  token-access=""
-  authentication="true"
-  height="850"
-  width="600"
-/>
+    bubbleview="true"
+    apiurl="Your API base url"
+    token-access=""
+    authentication="false">
+</saytv-chat>
 ```
 
-#### **Step 3: Customizing the Chat Component**
+**SayTV profile component**
+if you want to show profile page as a default landing.
+```
+<saytv-profile 
+    bubbleview="true"
+    apiurl="Your API base url"
+    token-access=""
+    authentication="false">
+</saytv-profile>
+```
+**SayTV episode component**
+if you want to show specific episode so you need to pass episode ID in episode attribute
+```
+<saytv-episode
+    bubbleview="true"
+    apiurl="Your API base url"
+    token-access=""
+    authentication="false"
+    episode="Your episode ID">
+</saytv-episode>
+```
+##### Note:
+In case, you want to Login/Register inside the SayTV-Chat SDK, please pass authentication “true”.
 
-The SayTV Chat SDK is designed to be flexible and adaptable to your specific needs. Here are the key properties you can customize:
+```
+authentication="true"
+```
+For customize the appearance of the SayTV chat SDK with below attributes:
 
-| **Property**     | **Type** | **Description**                                                                                                     | **Recommended Values**  |
-| ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| `apiurl`         | String   | The endpoint for accessing the SayTV chat SDK services.                                                             |                         |
-| `authentication` | Boolean  | `true`: Enables SayTV's built-in authentication system. Useful if your app does not have its own system.            | `true` or `false`       |
-|                  |          | `false`: Use this if your application manages its own user authentication. User verification is external.           |                         |
-| `token-access`   | JWT      | Provide a JWT token from your authentication system. Allows access to authenticated users.                          | JWT token (as a string) |
-|                  |          | Relevant only if `authentication` is set to `false`.                                                                |                         |
-|                  |          | More info: [Token Access and JWT Configuration](craft-importer-internal-link://#Token Access and JWT Configuration) |                         |
-| `height`         | px       | The height of the chat widget.                                                                                      | Minimum 600px           |
-| `width`          | px       | The width of the chat widget.                                                                                       | Minimum 300px           |
+### API / Options
+The following props (JS variables) are available to customize the `saytv-chat`,  `saytv-profile` component.
 
-#### **Step 4: Best Practices and Final Touches**
+| Prop`*` | Value Type | Description  | Default Value |  
+| ------ | ------ | ------ | ----- |
+| `bubbleview` | `Boolean` | To make bubble view | `false`
+| `apiurl` | `String` | For Access the SayTV chat SDK | `NULL`
+| `token-access` | `String` | It should be JWT token to access the SDK for external login or keep it blank. | `NULL`
+| `authentication` | `Boolean` | For Login/Register inside the SDK. | `false`
 
-- Ensure that the `apiurl` is correctly set to connect with the SayTV services.
-- For applications with existing user authentication, generate and pass a JWT token to the `token-access` property. This token should be securely generated on your server following a successful user login or registration.
-- Test the chat component thoroughly to ensure that it integrates smoothly with both the user interface and user experience aspects of your website.
-- Pay special attention to responsive design, ensuring that the chat component is usable and visually appealing across various devices and screen sizes.
+The following props (JS variables) are available to customize the `saytv-episode` component.
 
----
+| Prop`*` | Value Type | Description  | Default Value |  
+| ------ | ------ | ------ | ----- |
+| `bubbleview` | `Boolean` | To make bubble view | `false`
+| `episode` | `string` | Only for SayTV episode chat component | `NULL`
+| `apiurl` | `String` | For Access the SayTV chat SDK | `NULL`
+| `token-access` | `String` | It should be JWT token to access the SDK for external login or keep it blank. | `NULL`
+| `authentication` | `Boolean` | For Login/Register inside the SDK. | `false`
 
-## **Token Access and JWT Configuration**
 
-**Note**: This is only valid if you are not using built in authentication from `<saytv-chat />` & would like to use your authentication system.
+The following props (CSS variables) are available to customize the saytv-chat component:
 
-### Setting the JWT Secret and Configuration
+| Prop | Description  | Default Value |  
+| ------ | ------ | ----- |
+| `height` | Customize the SayTV SDK height. | `600 (In PX)`
+| `width` | Customize the SayTV SDK width. | `100%`
 
-Website owners can configure the JWT secret key and other related settings directly from their admin panel provided by SayTV. This configuration is crucial for verifying the JWT tokens used in the `token-access` property of the SayTV Chat SDK.
+`*` These are the mandatory parameters. 
+**Note**:- For better UI, width should be minimum `300px` and height should be minimum `600px`
+### Login
+Call this Function in a File for login on Firebase and SDK then Get Token.
+Example: 
 
-| **Setting**       | **Description**                                                                                 |
-| ----------------- | ----------------------------------------------------------------------------------------------- |
-| JWT Secret        | A secret key used for signing and verifying JWT tokens. Set this through the SayTV admin panel. |
-| JWT Configuration | Additional JWT settings like token expiration, issuer, and audience can be configured here.     |
+```
+<script>
+  document.getElementById("loginButtonId").onclick = async () => {
+    let payload = {
+          email : 'email',
+          password : 'Password',
+    }
+    //Parameter- payload, apiUrl
+    const response = window.connect.SayTVLogin(
+        payload,
+        "Your API base url"
+    );
+  };
+</script>
+```
 
-### User Identification via JWT
+# For React.JS
 
-SayTV utilizes the `sub` (subject) property within the JWT token to identify users. This is a standard claim in JWT tokens representing the subject of the token, typically the user ID. SayTV Chat SDK uses this `sub` value to:
+```
+ const Login = () => {
+    let payload = {
+          email : 'email',
+          password : 'Password',
+    }
+    //Parameter- payload, apiUrl
+    const response = window.connect.SayTVLogin(
+        payload,
+        "Your API base url"
+    );
+  };
+```
 
-- Associate messages with the correct user.
-- Link users to specific chat rooms.
-- Manage user profiles within the chat system.
+| Methods | Description  | 
+| ------ | ------ | 
+| SayTVLogin | It’s a custom SDK function. It takes payload, apiurl in SayTVLogin function and return response after login in SDK. 
 
-| **JWT Property** | **Use in SayTV Chat SDK**                                                    |
-| ---------------- | ---------------------------------------------------------------------------- |
-| `sub`            | Identifies the user. Associated with messages, chatrooms, and user profiles. |
+#### Validations 
+- **Email:** Use proper email format. 
+- **Password:** Minimum 6 characters.
 
-### Importance of Secure JWT Implementation
+#### Payload
+| Key | Type of Value  | Description |  
+| ------ | ------ | ----- |
+| `Username` | `String` | 
+| `Password` | `String` | 
+| `apiurl` | `String` | For Access the SayTV chat SDK
+| `response` | `Object` | 
 
-- Ensure that your JWT implementation is secure and aligns with best practices. The JWT secret must be kept confidential and secure.
-- Correct configuration of the JWT properties ensures seamless integration of user authentication and management within the SayTV Chat SDK.
+#### Response :
+
+| Key | Type of Value  | 
+| ------ | ------ | 
+| `data` | `Object` | 
+| `code` | `Number` | 
+| `message` | `String` | 
+
+#### Register
+Call this Function in a File for register on Firebase and SDK then Get Token.
+Example:
+
+```
+<script> 
+    document.querySelector("saytv-chat").shadowRoot.getElementById("registerCard").onclick = async () => {
+        let payload = {
+          username: 'UserName',
+          email : 'email',
+          password : 'Password',
+        };
+        const response = window.connect.SayTVRegister(payload,
+          "Your API base url"
+        ));
+    }
+</script>
+```
+
+### React.JS
+
+```
+    const Register = () => {
+        let payload = {
+          username: 'UserName',
+          email : 'email',
+          password : 'Password',
+        };
+    
+        const response = window.connect.SayTVRegister(payload,
+          "Your API base url"
+        ));
+    }
+```
+
+| Methods | Description  | 
+| ------ | ------ | 
+| `SayTVRegister` | It’s a custom SDK function. It takes payload and apiurl as perimeters and return response after register in SDK. | 
+
+#### Validation:
+- **Username:** Minimum 3 characters. 
+- **Email:** Use proper email format. 
+- **Password:** Minimum 6 characters.
+#### Payload
+| Key | Type of Value  | Description |  
+| ------ | ------ | ----- |
+| `Email` | `String` | 
+| `Password` | `String` | 
+| `Username` | `String` | 
+| `apiurl` | `String` | For Access the SayTV chat SDK
+| `response` | `Object` | 
+
+#### Response :
+
+| Key | Type of Value  | 
+| ------ | ------ |
+| `data` | `Object` | 
+| `code` | `Number` | 
+| `message` | `String` | 
