@@ -227,6 +227,14 @@ Example:
 | `message` | `String` | 
 
 
+---
+
+## Best Practices and Final Touches**
+
+- Ensure that the `apiurl` is correctly set to connect with the SayTV services.
+- For applications with existing user authentication, generate and pass a JWT token to the `token-access` property. This token should be securely generated on your server following a successful user login or registration.
+- Test the chat component thoroughly to ensure that it integrates smoothly with both the user interface and user experience aspects of your website.
+- Pay special attention to responsive design, ensuring that the chat component is usable and visually appealing across various devices and screen sizes.
 
 ---
 
