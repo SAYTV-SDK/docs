@@ -225,3 +225,37 @@ Example:
 | `data` | `Object` | 
 | `code` | `Number` | 
 | `message` | `String` | 
+
+
+
+---
+
+## **Token Access and JWT Configuration**
+
+**Note**: This is only valid if you are not using built in authentication from `<saytv-chat />` & would like to use your authentication system.
+
+### Setting the JWT Secret and Configuration
+
+Website owners can configure the JWT secret key and other related settings directly from their admin panel provided by SayTV. This configuration is crucial for verifying the JWT tokens used in the `token-access` property of the SayTV Chat SDK.
+
+| **Setting**       | **Description**                                                                                 |
+| ----------------- | ----------------------------------------------------------------------------------------------- |
+| JWT Secret        | A secret key used for signing and verifying JWT tokens. Set this through the SayTV admin panel. |
+| JWT Configuration | Additional JWT settings like token expiration, issuer, and audience can be configured here.     |
+
+### User Identification via JWT
+
+SayTV utilizes the `sub` (subject) property within the JWT token to identify users. This is a standard claim in JWT tokens representing the subject of the token, typically the user ID. SayTV Chat SDK uses this `sub` value to:
+
+- Associate messages with the correct user.
+- Link users to specific chat rooms.
+- Manage user profiles within the chat system.
+
+| **JWT Property** | **Use in SayTV Chat SDK**                                                    |
+| ---------------- | ---------------------------------------------------------------------------- |
+| `sub`            | Identifies the user. Associated with messages, chatrooms, and user profiles. |
+
+### Importance of Secure JWT Implementation
+
+- Ensure that your JWT implementation is secure and aligns with best practices. The JWT secret must be kept confidential and secure.
+- Correct configuration of the JWT properties ensures seamless integration of user authentication and management within the SayTV Chat SDK.
