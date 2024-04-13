@@ -37,6 +37,7 @@ import 'saytv-chat'
 
 ### Usage
 To use the SayTV Chat SDK, simply add saytv-chat component in your HTML file:
+
 **SayTV chat component**
 ```
 <saytv-chat
@@ -44,8 +45,12 @@ To use the SayTV Chat SDK, simply add saytv-chat component in your HTML file:
     apiurl="Your API base url"
     token-access=""
     authentication="false">
+            <span slot="totalwin">1000</span>
+			<span slot="totalbets">2000</span>
+			<span slot="totalwagered">3000</span>
 </saytv-chat>
 ```
+Note:- if you want to add slots in user profile page, Just pass `slot` attribute inside `span` with `totalwin`, `totalbets`,`totalwagered`.
 
 **SayTV profile component**
 if you want to show profile page as a default landing.
@@ -55,6 +60,9 @@ if you want to show profile page as a default landing.
     apiurl="Your API base url"
     token-access=""
     authentication="false">
+        <span slot="totalwin">1000</span>
+		<span slot="totalbets">2000</span>
+		<span slot="totalwagered">3000</span>
 </saytv-profile>
 ```
 **SayTV episode component**
@@ -66,6 +74,9 @@ if you want to show specific episode so you need to pass episode ID in episode a
     token-access=""
     authentication="false"
     episode="Your episode ID">
+        <span slot="totalwin">1000</span>
+		<span slot="totalbets">2000</span>
+		<span slot="totalwagered">3000</span>
 </saytv-episode>
 ```
 ##### Note:
