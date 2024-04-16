@@ -45,13 +45,8 @@ To use the SayTV Chat SDK, simply add saytv-chat component in your HTML file:
     apiurl="Your API base url"
     token-access=""
     authentication="false">
-            <span slot="totalwin">1000</span>
-			<span slot="totalbets">2000</span>
-			<span slot="totalwagered">3000</span>
 </saytv-chat>
 ```
-Note:- if you want to add slots in user profile page, Just pass `slot` attribute inside `span` with `totalwin`, `totalbets`,`totalwagered`.
-
 **SayTV profile component**
 if you want to show profile page as a default landing.
 ```
@@ -60,9 +55,6 @@ if you want to show profile page as a default landing.
     apiurl="Your API base url"
     token-access=""
     authentication="false">
-        <span slot="totalwin">1000</span>
-		<span slot="totalbets">2000</span>
-		<span slot="totalwagered">3000</span>
 </saytv-profile>
 ```
 **SayTV episode component**
@@ -74,11 +66,75 @@ if you want to show specific episode so you need to pass episode ID in episode a
     token-access=""
     authentication="false"
     episode="Your episode ID">
-        <span slot="totalwin">1000</span>
-		<span slot="totalbets">2000</span>
-		<span slot="totalwagered">3000</span>
 </saytv-episode>
 ```
+
+**SayTV component with custom `slot` for profile page**
+if you want to add slot to a user profile page, just pass the `slot` attribute inside `span` with `slotview` and after that you can add your HTML.
+**Note**: Slot will work for all componets like `saytv-chat`, `saytv-profile`, `saytv-episode`.
+```
+<saytv-chat
+    bubbleview="true"
+    apiurl="Your API base url"
+    token-access=""
+    authentication="false">
+        <span slot="slotview">
+            <!-- Your HTML for slot here -->
+			<div class="outerSlotBox">
+				<div class="innerBox">
+						<div class="slot-icon"></div>
+						<p class="slot-title">Total Wins</p>
+						<span class="slot-value">1513</span>
+				</div>
+				<div class="innerBox">
+					<div class="slot-icon"></div>
+					<p class="slot-title">Total Bets</p>
+					<span class="slot-value">631651</span>
+				</div>
+				<div class="innerBox">
+					<div class="slot-icon"></div>
+					<p class="slot-title">Total Wagered</p>
+					<span class="slot-value">35613</span>
+				</div>
+			</div>
+			 <!-- Your HTML for slot end -->
+		</span>
+</saytv-chat>
+```
+You can customize slot `CSS` at your end, for example.
+```
+<style>
+/* external slots css */
+		.outerSlotBox{
+			 margin-top: 20px;
+			display: flex;
+			gap: 7px;
+			border-radius: 7px;
+			justify-content: center;
+			padding: 10px;
+			background: #111111;
+		 }
+		.innerBox {
+			background-color: #efefef45;
+			border-radius: 7px;
+			padding: 7px;
+			width: 33.33%;
+			color: #fff;
+			text-align: center;
+		}
+		.slot-title {
+			font-size: 12px;
+			margin:0
+		}
+		.slot-value{
+			font-size: 21px;
+			font-weight: 600;
+		}
+  /* external slots css */
+</style>
+```
+
+
 ##### Note:
 In case, you want to Login/Register inside the SayTV-Chat SDK, please pass authentication “true”.
 
