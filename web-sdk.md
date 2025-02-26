@@ -134,9 +134,22 @@ You can customize slot `CSS` at your end, for example.
 </style>
 ```
 
+### SayTV component with mobile view SDK (Mobile Application) 
+if you want to use SDK in mobile application you can pass `mobileviewsdk="true"`
+```
+<saytv-episode
+    bubbleview="true"
+    apiurl="Your API base url"
+    token-access=""
+    authentication="false"
+    episode="Your episode ID"
+    mobileviewsdk="true"
+    >
+</saytv-episode>
+```
 
 ##### Note:
-In case, you want to Login/Register inside the SayTV-Chat SDK, please pass authentication “true”.
+In case, you want to Login/Register inside the SayTV-Chat SDK, please pass `authentication “true”`.
 
 ```
 authentication="true"
@@ -152,6 +165,7 @@ The following props (JS variables) are available to customize the `saytv-chat`, 
 | `apiurl` | `String` | For Access the SayTV chat SDK | `NULL`
 | `token-access` | `String` | It should be JWT token to access the SDK for external login or keep it blank. | `NULL`
 | `authentication` | `Boolean` | For Login/Register inside the SDK. | `false`
+| `mobileviewsdk` | `Boolean` | For mobile application | `false`
 
 The following props (JS variables) are available to customize the `saytv-episode` component.
 
@@ -162,17 +176,22 @@ The following props (JS variables) are available to customize the `saytv-episode
 | `apiurl` | `String` | For Access the SayTV chat SDK | `NULL`
 | `token-access` | `String` | It should be JWT token to access the SDK for external login or keep it blank. | `NULL`
 | `authentication` | `Boolean` | For Login/Register inside the SDK. | `false`
+| `mobileviewsdk` | `Boolean` | For mobile application | `false`
 
 
 The following props (CSS variables) are available to customize the saytv-chat component:
 
 | Prop | Description  | Default Value |  
 | ------ | ------ | ----- |
-| `height` | Customize the SayTV SDK height. | `600 (In PX)`
+| `height` | Customize the SayTV SDK height. | `600px`
 | `width` | Customize the SayTV SDK width. | `100%`
 
 `*` These are the mandatory parameters. 
-**Note**:- For better UI, width should be minimum `300px` and height should be minimum `600px`
+**Note**:- 
+- you can pass height and width in  `px`,`%` ,`vh` and `calc()` .
+- For better UI, width should be minimum `300px` and height should be minimum `600px`.
+
+
 ### Login
 Call this Function in a File for login on Firebase and SDK then Get Token.
 Example: 
