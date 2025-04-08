@@ -10,7 +10,7 @@ Download “dist” folder from SayTV Server and save into your application fold
 
 
 ### Meta tag
-Inclide following meta tag in your head tag to remove zoom in iPhone
+Include following meta tag in your head tag to remove zoom in iPhone
 ```sh
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 ```
